@@ -48,7 +48,7 @@ export const useAppStore = create<AppState>()(
             const { shapeName, shapeValue, materials } = data
 
             // Calculate
-            const { price, weight } = calcMetalFuction(shapeValue, materials!.mark, calcSizes, getPrice, state.sizetype)
+            const { price, weight, square } = calcMetalFuction(shapeValue, materials!.mark, calcSizes, getPrice, state.sizetype)
 
             // Output
             const output: ResultType = {
@@ -59,7 +59,8 @@ export const useAppStore = create<AppState>()(
               shape: shapeName,
               sizes,
               weight,
-              setType: state.sizetype
+              setType: state.sizetype,
+              square
             }
             
             return { results: [output, ...state.results] }

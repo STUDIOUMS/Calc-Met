@@ -92,11 +92,12 @@ const Results: React.FC = () => {
       </Head>
 
       <ResultsTable>
-        <ResultsTableHead className="grid grid-5">
+        <ResultsTableHead className="grid grid-6">
           <div>Форма</div>
           <div>Материал / Марка</div>
           <div>Размеры</div>
-          <div>Вес, кг</div>
+          <div>Вес</div>
+          <div>Площадь</div>
           <div>Цена</div>
         </ResultsTableHead>
         {results.map(el => <ResultItem key={el.id} el={el} />)}

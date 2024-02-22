@@ -47,7 +47,7 @@ const ResultItem: React.FC<IResultItem> = ({ el }) => {
 
   return (
     <>
-      <ResultsTableTd className="grid grid-5 grid-mb-1">
+      <ResultsTableTd className="grid grid-6 grid-mb-1">
         <Line name="Форма" value={el.shape} bold />
         <Line name="Материал / Марка" value={`${el.material} / ${(el.mark === 'Марка' ? '---' : el.mark)}`} />
         {/* <Line name="Марка" value={(el.mark === 'Марка' ? '---' : el.mark)} /> */}
@@ -55,6 +55,7 @@ const ResultItem: React.FC<IResultItem> = ({ el }) => {
           <Sizes sizes={el.sizes} type={el.setType} />
         </Line>
         <Line name="Вес" value={`${el.weight} кг.`} />
+        <Line name="Площадь" value={`${el.square} м²`} />
         <Line name="Цена" value={`${el.price}`} />
         <Delete className="deleteIcon" onClick={() => setModal(true)} />
       </ResultsTableTd>

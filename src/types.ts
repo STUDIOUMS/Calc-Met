@@ -33,11 +33,13 @@ export type ResultType = {
   weight: string
   price: string
   setType: string
+  square: string
 }
 
 export type CalcOutputType = {
   price: string
   weight: string
+  square: string
 }
 
 export type materialsObjType = {

@@ -1,4 +1,4 @@
-import { CalcOutputType, LengthSizeType, ShapeType, ShapeValueType, SizeType } from "./types";
+import { CalcOutputType, LengthSizeType, ShapeType, ShapeValueType, SizeType, WeightSizeType } from "./types";
 
 // sizesList
 export const sizesList: SizeType[] = [
@@ -123,18 +123,24 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
 
 
   // output
-  if (lengthtype === 'мм.') result = result / 1000000000
-  if (lengthtype === 'см.') result = result / 100000000
-  if (lengthtype === 'м.') result = result / 1000000
-
-  // 1000000 - mm
-  // 100000 - sm
-  // 1000 - m
+  if (lengthtype === 'мм.') {
+    result = result / 1000000000
+    area = area / 1000000
+  }
+  if (lengthtype === 'см.') {
+    result = result / 100000000
+    area = area / 100000
+  }
+  if (lengthtype === 'м.') {
+    result = result / 1000000
+    area = area / 1000
+  }
 
   const totalPrice: number = result * cost
   
   return {
     weight: result.toFixed(2),
-    price: (cost > 0) ? totalPrice.toFixed(2).toString() + ' руб.' : '---'
+    price: (cost > 0) ? totalPrice.toFixed(2).toString() + ' руб.' : '---',
+    square: area.toFixed(3),
   }
 }
