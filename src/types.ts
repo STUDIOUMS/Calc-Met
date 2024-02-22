@@ -8,7 +8,7 @@ export type SizeType = {
 }
 
 export type LengthSizeType = 'мм.' | 'см.' | 'м.'
-export type WeightSizeType = 'кг.' | 'тонну' | 'шт.'
+export type WeightSizeType = 'кг.' | 'тон.'
 
 export type ShapeType = {
   id: number

@@ -56,6 +56,7 @@ export const createLabelFunction = (val: string, title: string): string => {
 export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: number[], cost: number, lengthtype: LengthSizeType | string): CalcOutputType => {
   const Ro: number = mark
   let result: number = 0
+  let area: number = 0
 
   // Corner / ro * S * (A + B — S) * L
   if (shape === 'corner') {
@@ -90,8 +91,7 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
   if (shape === 'circle') {
     const radius = sizes[0] / 2
     result = Math.PI * Math.pow(radius, 2) * sizes[1] * mark
-
-    console.log(Math.PI * sizes[0] * sizes[1])
+    area = Math.PI * sizes[0] * sizes[1]
   }
 
   // Stripe
@@ -126,6 +126,10 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
   if (lengthtype === 'мм.') result = result / 1000000000
   if (lengthtype === 'см.') result = result / 100000000
   if (lengthtype === 'м.') result = result / 1000000
+
+  // 1000000 - mm
+  // 100000 - sm
+  // 1000 - m
 
   const totalPrice: number = result * cost
   
