@@ -10,7 +10,7 @@ export const lengthSizeSelect: SelectItemType[] = [
 // weightSizeSelect
 export const weightSizeSelect: SelectItemType[] = [
   { value: 'кг.', label: 'кг.' },
-  { value: 'тонну', label: 'тонну' },
+  { value: 'тон.', label: 'тон.' },
   { value: 'шт.', label: 'шт.' }
 ]
 

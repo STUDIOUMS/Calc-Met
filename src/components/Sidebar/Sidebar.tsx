@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { useAppStore } from "../store/store"
-import logo from "../assets/logo.svg"
+import { useAppStore } from "../../store/store"
+import SideLogo from "./SideLogo"
 
 // Variables
 const asideWidth = 300
@@ -28,21 +28,6 @@ const Overlay = styled.div<{ $opened: boolean }>`
   right: 0;
   z-index: 990;
   display: ${props => props.$opened ? 'block' : 'none'};
-`
-const LogoBody = styled.div`
-  border-bottom: 1px solid var(--color-line);
-  padding: 20px;
-`
-const Logo = styled.div`
-  background: #fff;
-  border-radius: 6px;
-  display: inline-flex;
-  margin: 0 0 10px;
-  padding: 4px 8px;
-  img { display: block; }
-`
-const LogoText = styled.div`
-  color: var(--color-text);
 `
 const Nav = styled.ul`
   color: var(--color-text);
@@ -72,19 +57,14 @@ const Nav = styled.ul`
   }
 `
 
-
 const Sidebar: React.FC = () => {
   const { aside, setAside } = useAppStore()
   
   return (
     <>
       <Aside $opened={aside}>
-        <LogoBody>
-          <Logo>
-            <img src={logo} alt="" />
-          </Logo>
-          <LogoText>Калькулятор металла и краски</LogoText>
-        </LogoBody>
+        <SideLogo title="Калькулятор металла и краски" />
+        
         <Nav>
           <li>
             <a href="#">

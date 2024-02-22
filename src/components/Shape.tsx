@@ -40,7 +40,7 @@ const ShapeBtn = styled.button<{ $active: boolean }>`
     min-height: 40px;
   }
 `
-const Icon = styled.div`
+const Icon = styled.div<{ $active: boolean }>`
   background-color: var(--color-bg);
   border-radius: 5px;
   display: flex;
@@ -49,7 +49,7 @@ const Icon = styled.div`
   height: 44px;
   margin: 0 12px 0 0;
   min-width: 44px;
-  svg { fill: var(--color-btn); }
+  svg { fill: var(--color-${props => props.$active ? 'btn' : 'svg'}); }
   @media screen and (max-width: 720px) {
     background-size: 18px;
     height: 36px;
@@ -60,7 +60,7 @@ const Icon = styled.div`
 const Shape: React.FC<IShape> = ({ current, handler, el }) => {
   return (
     <ShapeBtn type="button" onClick={() => handler(el)} $active={current === el.value}>
-      <Icon>
+      <Icon $active={current === el.value}>
       
         {el.value === 'pipe-square' && <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Vector 3"><path id="Rectangle 17 (Stroke)" fillRule="evenodd" clipRule="evenodd" d="M20.5333 1.46667H1.46667L1.46667 20.5333H20.5333V1.46667ZM1.46667 0C0.656649 0 0 0.656649 0 1.46667V20.5333C0 21.3434 0.656649 22 1.46667 22H20.5333C21.3434 22 22 21.3434 22 20.5333V1.46667C22 0.656649 21.3434 0 20.5333 0H1.46667Z" /></g>

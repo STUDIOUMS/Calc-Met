@@ -10,7 +10,7 @@ import { useAppStore } from "./store/store"
 import { useForm } from "react-hook-form"
 import Footer from "./components/Footer"
 import Results from "./components/results/Results"
-import Sidebar from "./components/Sidebar"
+import Sidebar from "./components/Sidebar/Sidebar"
 
 
 function App() {

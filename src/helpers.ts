@@ -90,6 +90,8 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
   if (shape === 'circle') {
     const radius = sizes[0] / 2
     result = Math.PI * Math.pow(radius, 2) * sizes[1] * mark
+
+    console.log(Math.PI * sizes[0] * sizes[1])
   }
 
   // Stripe
