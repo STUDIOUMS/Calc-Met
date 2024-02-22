@@ -8,6 +8,7 @@ interface ISelect {
   handler: (val: string) => void
   size?: SelectSizeType
   defVal?: string
+  styles?: any
 }
 
 // Styles
@@ -37,15 +38,16 @@ const Dropdown = styled.select<{ $size: SelectSizeType }>`
   `}
   appearance: none;
   -webkit-appearance: none;
+  &.stick { right: 5px; }
   @media screen and (max-width: 720px) {
     height: 44px;
   }
 `
 
-const Select: React.FC<ISelect> = ({ list, handler, size = 'default', defVal }) => {
+const Select: React.FC<ISelect> = ({ list, handler, size = 'default', defVal, styles }) => {
   return (
     <Dropdown
-      className="selectArrow"
+      className={`selectArrow ${styles}`}
       onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handler(e.target.value)}
       $size={size}
       defaultValue={defVal}

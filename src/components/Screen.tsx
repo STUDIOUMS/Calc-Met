@@ -3,7 +3,7 @@ import { ShapeType } from "../types"
 import Field from "../ui/Field"
 import FormControl from "../ui/FormControl"
 import Select from "../ui/Select"
-import { lengthSizeSelect } from "../selects"
+import { lengthSizeSelect, weightSizeSelect } from "../selects"
 import { useAppStore } from "../store/store"
 import { createLabelFunction, sizesList } from "../helpers"
 
@@ -29,7 +29,7 @@ const View = styled.div`
 `
 
 const Screen: React.FC<IScreen> = ({ errors, register, shape }) => {
-  const { sizetype, changeSizeType } = useAppStore()
+  const { sizetype, weightype, changeSizeType, changeWeightType } = useAppStore()
   
   const shapeSizesList = shape.list.map(el => {
     const found = sizesList.find(i => i.id === el)
@@ -54,12 +54,13 @@ const Screen: React.FC<IScreen> = ({ errors, register, shape }) => {
           </Field>
         })}
 
-        <Field title="Цена, за 1 кг.">
+        <Field title={`Цена, за 1 ${weightype}`}>
           <FormControl
             type="number"
             register={register('price', { min: 1 })}
             error={errors && errors.price}
           />
+          <Select handler={(val) => changeWeightType(val)} list={weightSizeSelect} size="small" defVal={weightype} styles="stick" />
         </Field>
       </div>
     </div>

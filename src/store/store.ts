@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import { LengthSizeType, ResultType, SetDataType } from '../types'
+import { LengthSizeType, ResultType, SetDataType, WeightSizeType } from '../types'
 import { calcMetalFuction } from '../helpers'
 import { nanoid } from 'nanoid'
 
@@ -10,11 +10,13 @@ interface AppState {
   theme: boolean
   results: ResultType[]
   sizetype: LengthSizeType | string
+  weightype: WeightSizeType | string
   toggleTheme: () => void
   setResult: (data: SetDataType) => void
   removeResult: (id: string) => void
   removeAllResults: () => void
   changeSizeType: (val: LengthSizeType | string) => void
+  changeWeightType: (val: WeightSizeType | string) => void
   setAside: () => void
 }
 
@@ -26,6 +28,7 @@ export const useAppStore = create<AppState>()(
         theme: false,
         results: [],
         sizetype: 'мм.',
+        weightype: 'кг.',
 
         // Theme
         toggleTheme: () => set((state) => ({ theme: !state.theme })),
@@ -69,6 +72,9 @@ export const useAppStore = create<AppState>()(
 
         // changeSizeType
         changeSizeType: (val) => set(() => ({ sizetype: val })),
+        
+        // changeWeightType
+        changeWeightType: (val) => set(() => ({ weightype: val })),
 
         // setAside
         setAside: () => set((state) => ({ aside: !state.aside })),
@@ -79,7 +85,8 @@ export const useAppStore = create<AppState>()(
         partialize: (state) => ({
           theme: state.theme,
           results: state.results,
-          sizetype: state.sizetype
+          sizetype: state.sizetype,
+          weightype: state.weightype
         })
       }
     )
