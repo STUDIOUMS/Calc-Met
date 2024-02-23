@@ -96,8 +96,8 @@ const Results: React.FC = () => {
           <div>Форма</div>
           <div>Материал / Марка</div>
           <div>Размеры</div>
-          <div>Вес</div>
-          <div>Площадь</div>
+          <div>Вес, кг</div>
+          <div>Площадь, м&sup2;</div>
           <div>Цена</div>
         </ResultsTableHead>
         {results.map(el => <ResultItem key={el.id} el={el} />)}

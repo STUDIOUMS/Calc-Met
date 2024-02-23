@@ -1,4 +1,4 @@
-import { CalcOutputType, LengthSizeType, ShapeType, ShapeValueType, SizeType, WeightSizeType } from "./types";
+import { CalcOutputType, LengthSizeType, ShapeType, ShapeValueType, SizeType } from "./types";
 
 // sizesList
 export const sizesList: SizeType[] = [

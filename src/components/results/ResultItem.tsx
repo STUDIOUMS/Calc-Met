@@ -54,9 +54,9 @@ const ResultItem: React.FC<IResultItem> = ({ el }) => {
         <Line name="Размеры">
           <Sizes sizes={el.sizes} type={el.setType} />
         </Line>
-        <Line name="Вес" value={`${el.weight} кг.`} />
-        <Line name="Площадь" value={`${el.square} м²`} />
-        <Line name="Цена" value={`${el.price}`} />
+        <Line name="Вес" value={el.weight} />
+        <Line name="Площадь" value={el.square} />
+        <Line name="Цена" value={el.price} />
         <Delete className="deleteIcon" onClick={() => setModal(true)} />
       </ResultsTableTd>
 
