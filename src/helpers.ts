@@ -1,4 +1,4 @@
-import { CalcOutputType, LengthSizeType, ShapeType, ShapeValueType, SizeType } from "./types";
+import { CalcOutputType, LengthSizeType, ShapeType, ShapeValueType, SizeType, WeightSizeType } from "./types";
 
 // sizesList
 export const sizesList: SizeType[] = [
@@ -53,7 +53,7 @@ export const createLabelFunction = (val: string, title: string): string => {
 
 
 // CALC FUNCTION
-export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: number[], cost: number, lengthtype: LengthSizeType | string): CalcOutputType => {
+export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: number[], cost: number, lengthtype: LengthSizeType | string, weightype: WeightSizeType | string): CalcOutputType => {
   const Ro: number = mark
   let result: number = 0
   let area: number = 0
@@ -71,7 +71,7 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
   // Sheet / H * A * B * p * N
   if ( shape === 'sheet' ) {
     result = sizes.reduce((acum, el) => acum *= el, 1) * mark
-    area = sizes[1] * sizes[2]
+    area = sizes[1] * sizes[2] * sizes[3]
   }
 
   // Round pipe / Pi * Ro * S * (D - S) * L
@@ -128,13 +128,13 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
 
   // Rail / ρ × (2 × b × t + (h - 2 × t) × s) × L
   if (shape === 'rail') {
-    console.log('rail')
     const h = sizes[0]
     const b = sizes[1]
     const t = sizes[2]
     const s = sizes[3]
     const L = sizes[4]
     result = mark * (2 * b * t + (h - 2 * t) * s) * L
+    area = (((b + (b - t)) * 2 ) + ((h - s) * 2) + (s * 2) + t ) * L
   }
 
 
@@ -152,11 +152,12 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
     area = area / 1000
   }
 
-  const totalPrice: number = result * cost
+  // totalPrice
+  const totalPrice: number = (weightype === 'тн.') ? result * cost / 1000 : result * cost
   
   return {
     weight: result.toFixed(2),
     price: (cost > 0) ? totalPrice.toFixed(2).toString() + ' руб.' : '---',
-    square: area.toFixed(3),
+    square: area.toString(),
   }
 }

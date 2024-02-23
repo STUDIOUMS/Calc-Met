@@ -2,8 +2,8 @@ import { useAppStore } from "./store/store"
 import { Route, Routes } from "react-router-dom"
 import MetalCalc from "./pages/MetalCalc"
 import PaintCalc from "./pages/PaintCalc"
-import Header from "./components/Header"
 import Sidebar from "./components/sidebar/Sidebar"
+import InfoPage from "./pages/InfoPage"
 
 function App() {
   const theme = useAppStore(state => state.theme)
@@ -18,11 +18,10 @@ function App() {
     <>
       <Sidebar />
       <div className="app">
-        <Header />
-
         <Routes>
           <Route index path="/" element={<MetalCalc />} />
-          <Route index path="/paint" element={<PaintCalc />} />
+          <Route path="/paint" element={<PaintCalc />} />
+          <Route path="/info" element={<InfoPage />} />
         </Routes>
       </div>
     </>

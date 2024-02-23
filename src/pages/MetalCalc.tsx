@@ -9,6 +9,7 @@ import { useAppStore } from "../store/store"
 import { useForm } from "react-hook-form"
 import Footer from "../components/Footer"
 import Results from "../components/results/Results"
+import Header from "../components/Header"
 
 
 const MetalCalc: React.FC = () => {
@@ -40,6 +41,7 @@ const MetalCalc: React.FC = () => {
 
   return (
     <>
+      <Header title="Калькулятор металлов" />
       <div className="app-calc">
         <Materials setMaterials={setMaterials} />
         
