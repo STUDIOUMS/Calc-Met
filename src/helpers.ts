@@ -66,11 +66,13 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
   // Sheet / H * A * B * p * N
   if ( shape === 'sheet' ) {
     result = sizes.reduce((acum, el) => acum *= el, 1) * mark
+    area = sizes[1] * sizes[2]
   }
 
   // Round pipe / Pi * Ro * S * (D - S) * L
   if (shape === 'pipe') {
     result = Math.PI * Ro * sizes[1] * ( sizes[0] - sizes[1] ) * sizes[2]
+    area = Math.PI * sizes[0] * sizes[2]
   }
   
   // Square pipe / ((A + B) * 2) * L * S * Ro
@@ -80,11 +82,13 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
     const length = sizes[2]
     const S = sizes[3]
     result = ( (size1 + size2) * 2 ) * length * S * mark
+    area = length * (size1 + size2) * 2
   }
 
   // Square
   if (shape === 'square') {
     result = Math.pow(sizes[0], 2) * sizes[1] * mark
+    area = sizes[1] * (sizes[0] * 2) * 2
   }
 
   // Circle
@@ -97,12 +101,14 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
   // Stripe
   if (shape === 'ribbon' ) {
     result = sizes[0] * sizes[1] * sizes[2] * mark
+    area = sizes[1] * sizes[2]
   }
 
   // Corner6
   if (shape === 'corner6') {
     const cbrt = 0.87
     result = cbrt * Math.pow(sizes[0], 2) * sizes[1] * mark
+    area = Math.PI * sizes[0] * sizes[1]
   }
 
   // Shwell / М = ( 2 x B + Н — 4 х S ) * L х S х 7.9

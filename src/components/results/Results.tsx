@@ -72,8 +72,7 @@ const FooterBox = styled.div`
 `
 
 const Results: React.FC = () => {
-  const results = useAppStore(state => state.results)
-  const removeAllResults = useAppStore(state => state.removeAllResults)
+  const { results, removeAllResults } = useAppStore()
   const [modal, setModal] = useState<boolean>(false)
 
   // removeAllHandler
