@@ -4,7 +4,7 @@ import { useAppStore } from "../../store/store"
 import SideLogo from "./SideLogo"
 import { Link } from "react-router-dom"
 
-// Variables
+// Variable
 const asideWidth = 300
 
 // Sidebar
