@@ -60,7 +60,12 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
 
   // Corner / ro * S * (A + B — S) * L
   if (shape === 'corner') {
-    result = mark * sizes[3] * (sizes[0] + sizes[1] - sizes[3]) * sizes[2]
+    const W = sizes[0]
+    const H = sizes[1]
+    const L = sizes[2]
+    const T = sizes[3]
+    result = mark * T * (W + H - T) * L
+    area = ( ( W + (W - T) ) + ( H + (H - T) ) + ( T * 2 ) ) * L
   }
 
   // Sheet / H * A * B * p * N
@@ -113,7 +118,12 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
 
   // Shwell / М = ( 2 x B + Н — 4 х S ) * L х S х 7.9
   if (shape === 'shwell') {
-    result = ( 2 * sizes[0] + sizes[1] - 4 * sizes[3] ) * sizes[2] * sizes[3] * mark
+    const H = sizes[0]
+    const W = sizes[1]
+    const L = sizes[2]
+    const S = sizes[3]
+    result = ( 2 * H + W - 4 * S ) * L * S * mark
+    area = ( ( H + ( H - S ) ) * 2 + ( W + ( W - S ) ) + S * 3 ) * L
   }
 
   // Rail / ρ × (2 × b × t + (h - 2 × t) × s) × L
