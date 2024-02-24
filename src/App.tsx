@@ -13,6 +13,7 @@ function App() {
   } else {
     document.body.setAttribute('data-theme', 'dark')
   }
+  
 
   return (
     <>

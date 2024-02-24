@@ -152,12 +152,15 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
     area = area / 1000
   }
 
+  // totalArea
+  const totalArea: string = (area % 1) === 0 ? area.toFixed(0) : area.toFixed(2)
+
   // totalPrice
   const totalPrice: number = (weightype === 'тн.') ? result * cost / 1000 : result * cost
   
   return {
     weight: result.toFixed(2),
     price: (cost > 0) ? totalPrice.toFixed(2).toString() + ' руб.' : '---',
-    square: area.toString(),
+    square: totalArea,
   }
 }
