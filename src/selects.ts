@@ -13,6 +13,20 @@ export const weightSizeSelect: SelectItemType[] = [
   { value: 'тн.', label: 'тн.' },
 ]
 
+// selectShapes
+export const selectShapes: SelectItemType[] = [
+  { value: 'pipe-square', label: 'Труба квадратная' },
+  { value: 'sheet', label: 'Лист' },
+  { value: 'pipe', label: 'Труба' },
+  { value: 'circle', label: 'Круг' },
+  { value: 'corner', label: 'Уголок' },
+  { value: 'square', label: 'Квадрат' },
+  { value: 'shwell', label: 'Швеллер' },
+  { value: 'ribbon', label: 'Полоса' },
+  { value: 'rail', label: 'Балка' },
+  { value: 'corner6', label: 'Шестигранник' },
+]
+
 // selectList
 export const selectList: SelectItemType[] = [
   {
