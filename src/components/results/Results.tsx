@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Btn from "../../ui/Btn"
-import { useAppStore } from "../../store/store"
+import { useResultStore } from "../../store/resultStore"
 import ResultItem from "./ResultItem"
 import { useState } from "react"
 import Modal from "../Modal"
@@ -72,7 +72,7 @@ const FooterBox = styled.div`
 `
 
 const Results: React.FC = () => {
-  const { results, removeAllResults } = useAppStore()
+  const { results, removeAllResults } = useResultStore()
   const [modal, setModal] = useState<boolean>(false)
 
   // removeAllHandler

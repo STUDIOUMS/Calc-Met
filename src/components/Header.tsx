@@ -1,5 +1,5 @@
 import BtnIcon from '../ui/BtnIcon'
-import { useAppStore } from '../store/store'
+import { useAppStore } from '../store/appStore'
 
 interface IHeader {
   title: string

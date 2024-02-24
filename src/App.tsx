@@ -1,5 +1,5 @@
-import { useAppStore } from "./store/store"
 import { Route, Routes } from "react-router-dom"
+import { useAppStore } from "./store/appStore"
 import MetalCalc from "./pages/MetalCalc"
 import PaintCalc from "./pages/PaintCalc"
 import Sidebar from "./components/sidebar/Sidebar"
@@ -7,8 +7,7 @@ import InfoPage from "./pages/InfoPage"
 import { useEffect } from "react"
 
 function App() {
-  const theme = useAppStore(state => state.theme)
-  const aside = useAppStore(state => state.aside)
+  const { aside, theme } = useAppStore()
 
   if (theme) {
     document.body.setAttribute('data-theme', 'light')

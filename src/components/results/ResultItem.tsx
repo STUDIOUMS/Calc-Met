@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { ResultType } from "../../types"
 import { ResultsTableTd } from "./Results"
 import Line from "./Line"
-import { useAppStore } from "../../store/store"
+import { useResultStore } from "../../store/resultStore"
 import Modal from "../Modal"
 import { useState } from "react"
 import Btn from "../../ui/Btn"
@@ -36,13 +36,13 @@ const Delete = styled.button`
 `
 
 const ResultItem: React.FC<IResultItem> = ({ el }) => {
-  const remove = useAppStore(state => state.removeResult)
+  const { removeResult } = useResultStore()
   const [modal, setModal] = useState<boolean>(false)
 
   // removeItem
   const removeItem = () => {
     setModal(false)
-    remove(el.id)
+    removeResult(el.id)
   }
 
   return (

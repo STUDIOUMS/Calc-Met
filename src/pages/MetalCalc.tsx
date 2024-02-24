@@ -5,7 +5,7 @@ import Btn from "../ui/Btn"
 import Screen from "../components/Screen"
 import { ShapeType, materialsObjType } from "../types"
 import Materials from "../components/Materials"
-import { useAppStore } from "../store/store"
+import { useResultStore } from "../store/resultStore"
 import { useForm } from "react-hook-form"
 import Footer from "../components/Footer"
 import Results from "../components/results/Results"
@@ -15,7 +15,7 @@ import Header from "../components/Header"
 const MetalCalc: React.FC = () => {
   const [materials, setMaterials] = useState<materialsObjType | null>(null)
   const [shape, setShape] = useState<ShapeType>(shapesList[0])
-  const setResult = useAppStore(state => state.setResult)
+  const { setResult } = useResultStore()
 
   // Form
   const { handleSubmit, register, reset, formState: { errors } } = useForm()

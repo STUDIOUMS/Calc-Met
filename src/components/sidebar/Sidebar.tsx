@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useAppStore } from "../../store/store"
+import { useAppStore } from "../../store/appStore"
 import SideLogo from "./SideLogo"
 import { Link } from "react-router-dom"
 import BtnIcon from "../../ui/BtnIcon"

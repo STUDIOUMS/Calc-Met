@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useAppStore } from "../../store/store"
+import { useAppStore } from "../../store/appStore"
 
 interface ISideLogo {
   title: string

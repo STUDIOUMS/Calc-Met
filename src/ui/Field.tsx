@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useAppStore } from "../store/store"
+import { useResultStore } from "../store/resultStore"
 
 interface IField {
   children: React.ReactNode
@@ -30,7 +30,7 @@ const Label = styled.label`
 `
 
 const Field: React.FC<IField> = ({ children, title }) => {
-  const sizetype = useAppStore(state => state.sizetype)
+  const { sizetype } = useResultStore()
   const addtitle = (title.includes('Длина')) && ', ' + sizetype
   
   return (
