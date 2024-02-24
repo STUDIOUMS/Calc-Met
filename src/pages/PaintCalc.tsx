@@ -1,4 +1,7 @@
 import Header from "../components/Header"
+import Btn from "../ui/Btn"
+import Field from "../ui/Field"
+import FormControl from "../ui/FormControl"
 
 const PaintCalc: React.FC = () => {
   return (
@@ -6,7 +9,28 @@ const PaintCalc: React.FC = () => {
       <Header title="Калькулятор краски" />
       <div className="app-calc">
         <div className="appbox">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, adipisci sit? Earum quae enim odio dolores cum, qui atque fuga eum repudiandae, quibusdam sit eveniet dolore minus blanditiis perferendis obcaecati veniam reprehenderit quisquam impedit corrupti maiores, cumque ad? Dolores quos hic sequi inventore! Dolores facilis mollitia sint at ex exercitationem odio voluptatibus rerum illum, doloribus eum dolorem dolor aliquam repellendus quas illo, quasi quae nemo doloremque nesciunt tempore esse debitis. Et totam quibusdam, officiis aspernatur placeat consectetur recusandae saepe quod. Possimus blanditiis ut laudantium animi dolores rerum natus id officiis omnis quas accusamus, velit enim unde! Ad vel amet debitis!
+
+          <h4>Исходные данные</h4>
+          <Field title="Цена краски, руб/кг">
+            <FormControl error={false} register={() => {}} />
+          </Field>
+          <Field title="Удельный вес, г/см³">
+            <FormControl error={false} register={() => {}} />
+          </Field>
+          <Field title="Толщина покрытия, мкм">
+            <FormControl error={false} register={() => {}} />
+          </Field>
+          <Field title="Коэффициент, %">
+            <FormControl error={false} register={() => {}} />
+          </Field>
+
+          <Btn title="Посчитать" type="submit" handler={() => {}} />
+
+          <h4>Результат</h4>
+          <p>Стоимость покрытия, руб/м&sup2; - 0</p>
+          <p>Расход краски, г/м&sup2; - 0</p>
+          <p>Укрываемость, м&sup2;/кг - 0</p>
+
         </div>
       </div>
     </>

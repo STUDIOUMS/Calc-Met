@@ -57,7 +57,6 @@ const MetalCalc: React.FC = () => {
           </Footer>
         </form>
       </div>
-      
       <Results />
     </>
   )
