@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import styled, { css } from "styled-components"
 
 type ColorType = 'line' | 'warning' | 'blue' | 'transparent'
@@ -10,6 +10,7 @@ interface IBtnIcon<T> {
   rounded?: boolean
   areaLabel?: string
   to?: string
+  nav?: boolean
 }
 
 // Styles
@@ -32,11 +33,17 @@ const IconBtn = styled.button<{ $color: ColorType, $rounded: boolean }>`
 const IconLink = styled(Link)<{ $color: ColorType, $rounded: boolean }>`
   ${IconStyles}
 `
+const IconNavLink = styled(NavLink)<{ $color: ColorType, $rounded: boolean }>`
+  ${IconStyles}
+`
 
-const BtnIcon: React.FC<IBtnIcon<any>> = ({ areaLabel, classname, color = 'line', handler, rounded = false, to }) => {
+const BtnIcon: React.FC<IBtnIcon<any>> = ({ areaLabel, classname, color = 'line', handler, rounded = false, to, nav }) => {
   return (
-    !to ? <IconBtn className={classname} onClick={handler} $color={color} $rounded={rounded} aria-label={areaLabel} />
-        : <IconLink className={classname} to={to} $color={color} $rounded={rounded} aria-label={areaLabel} />
+    <>
+      {(!to && !nav) && <IconBtn className={classname} onClick={handler} $color={color} $rounded={rounded} aria-label={areaLabel} />}
+      {(to && !nav) && <IconLink className={classname} to={to} $color={color} $rounded={rounded} aria-label={areaLabel} />}
+      {(nav && to) && <IconNavLink className={classname} to={to} $color={color} $rounded={rounded} aria-label={areaLabel} />}
+    </>
   )
 }
 

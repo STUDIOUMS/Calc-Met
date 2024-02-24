@@ -144,8 +144,18 @@ body {
 .infoIcon { background-image: url('./assets/info.svg'); }
 .shareIcon { background-image: url('./assets/share.svg'); }
 .menuIcon { background-image: url('./assets/bars.svg'); }
-.calcMetalIcon { background-image: url('./assets/calc-metal.svg'); background-size: 24px !important; }
-.calcSprayIcon { background-image: url('./assets/calc-spray.svg'); background-size: 24px !important; }
+.calcMetalIcon {
+  background-image: url('./assets/calc-metal.svg'); background-size: 24px !important;
+  &.active { background-image: url('./assets/calc-metal-white.svg'); }
+}
+.calcSprayIcon {
+  background-image: url('./assets/calc-spray.svg'); background-size: 24px !important;
+  &.active { background-image: url('./assets/calc-spray-white.svg'); }
+}
+.calcMetalIcon, .calcSprayIcon {
+  &.active { background-color: var(--color-btn); }
+}
+
 .switchIcon {
   background-image: url('./assets/moon-white.svg');
   &.active { background-image: url('./assets/sun.svg'); }
