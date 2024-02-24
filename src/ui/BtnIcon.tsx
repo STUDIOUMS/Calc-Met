@@ -10,7 +10,7 @@ interface IBtnIcon<T> {
   rounded?: boolean
   areaLabel?: string
   to?: string
-  nav?: boolean
+  type?: 'button' | 'link' | 'navlink'
 }
 
 // Styles
@@ -37,12 +37,12 @@ const IconNavLink = styled(NavLink)<{ $color: ColorType, $rounded: boolean }>`
   ${IconStyles}
 `
 
-const BtnIcon: React.FC<IBtnIcon<any>> = ({ areaLabel, classname, color = 'line', handler, rounded = false, to, nav }) => {
+const BtnIcon: React.FC<IBtnIcon<any>> = ({ areaLabel, classname, color = 'line', handler, rounded = false, to, type = 'button' }) => {
   return (
     <>
-      {(!to && !nav) && <IconBtn className={classname} onClick={handler} $color={color} $rounded={rounded} aria-label={areaLabel} />}
-      {(to && !nav) && <IconLink className={classname} to={to} $color={color} $rounded={rounded} aria-label={areaLabel} />}
-      {(nav && to) && <IconNavLink className={classname} to={to} $color={color} $rounded={rounded} aria-label={areaLabel} />}
+      {(type === 'button') && <IconBtn className={classname} onClick={handler} $color={color} $rounded={rounded} aria-label={areaLabel} />}
+      {(type === 'link') && <IconLink className={classname} to={to!} $color={color} $rounded={rounded} aria-label={areaLabel} />}
+      {(type === 'navlink') && <IconNavLink className={classname} to={to!} $color={color} $rounded={rounded} aria-label={areaLabel} />}
     </>
   )
 }

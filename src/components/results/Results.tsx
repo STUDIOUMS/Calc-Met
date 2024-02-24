@@ -87,7 +87,7 @@ const Results: React.FC = () => {
     <div>
       <Head>
         <h4>Результаты подсчёта</h4>
-        <BtnIcon classname="shareIcon" handler={() => {}} areaLabel="Share link" color="transparent" />
+        <BtnIcon classname="downloadIcon" handler={() => {}} areaLabel="Download link" color="transparent" />
       </Head>
 
       <ResultsTable>
@@ -104,11 +104,11 @@ const Results: React.FC = () => {
 
       <FooterBox>
         <div>
-          <Btn title="Удалить все" color="white" handler={() => setModal(true)} />
+          <Btn title="Удалить все" color="warning" handler={() => setModal(true)} />
         </div>
-        <div>
+        {/* <div>
           <Btn href="http://google.ru" title="Узнать наличие и цены" color="warning" handler={() => {}} />
-        </div>
+        </div> */}
       </FooterBox>
 
       <Modal close={setModal} open={modal} title="Удалить все результаты" size="small">

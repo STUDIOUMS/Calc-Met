@@ -144,6 +144,7 @@ body {
 .infoIcon { background-image: url('./assets/info.svg'); }
 .shareIcon { background-image: url('./assets/share.svg'); }
 .menuIcon { background-image: url('./assets/bars.svg'); }
+.downloadIcon { background-image: url('./assets/file.svg'); background-size: 22px !important; }
 .calcMetalIcon {
   background-image: url('./assets/calc-metal.svg'); background-size: 24px !important;
   &.active { background-image: url('./assets/calc-metal-white.svg'); }
@@ -176,6 +177,7 @@ body[data-theme="dark"] {
   .menuIcon { background-image: url('./assets/bars-white.svg'); }
   .calcMetalIcon { background-image: url('./assets/calc-metal-white.svg'); }
   .calcSprayIcon { background-image: url('./assets/calc-spray-white.svg'); }
+  .downloadIcon { background-image: url('./assets/file-white.svg'); }
 }
 
 
