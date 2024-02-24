@@ -11,6 +11,8 @@ const Header: React.FC<IHeader> = ({ title }) => {
   return (
     <div className="app-header">
       <h1>{title}</h1>
+      <BtnIcon areaLabel="Калькулятор металла" classname="calcMetalIcon" to="/" />
+      <BtnIcon areaLabel="Калькулятор краски" classname="calcSprayIcon" to="/paint" />
       <BtnIcon areaLabel="Меню" classname={`menuIcon ${theme ? 'active' : ''}`} handler={() => setAside()} />
     </div>
   )

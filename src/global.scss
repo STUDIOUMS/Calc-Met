@@ -101,7 +101,7 @@ body {
     display: flex;
     margin: 0 0 30px;
     h1 { margin-right: auto; }
-    button { margin-left: 10px; }
+    button, a { margin-left: 10px; }
   }
   &box {
     background: var(--color-white);
@@ -144,6 +144,8 @@ body {
 .infoIcon { background-image: url('./assets/info.svg'); }
 .shareIcon { background-image: url('./assets/share.svg'); }
 .menuIcon { background-image: url('./assets/bars.svg'); }
+.calcMetalIcon { background-image: url('./assets/calc-metal.svg'); background-size: 24px !important; }
+.calcSprayIcon { background-image: url('./assets/calc-spray.svg'); background-size: 24px !important; }
 .switchIcon {
   background-image: url('./assets/moon-white.svg');
   &.active { background-image: url('./assets/sun.svg'); }
@@ -162,6 +164,8 @@ body[data-theme="dark"] {
   .selectArrow { background-image: url('./assets/chevron-white.svg'); }
   .shareIcon { background-image: url('./assets/share-white.svg'); }
   .menuIcon { background-image: url('./assets/bars-white.svg'); }
+  .calcMetalIcon { background-image: url('./assets/calc-metal-white.svg'); }
+  .calcSprayIcon { background-image: url('./assets/calc-spray-white.svg'); }
 }
 
 

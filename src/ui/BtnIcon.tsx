@@ -1,17 +1,19 @@
-import styled from "styled-components"
+import { Link } from "react-router-dom"
+import styled, { css } from "styled-components"
 
 type ColorType = 'line' | 'warning' | 'blue' | 'transparent'
 
 interface IBtnIcon<T> {
   classname?: string
   color?: ColorType
-  handler: React.Dispatch<React.SetStateAction<T>>
+  handler?: React.Dispatch<React.SetStateAction<T>>
   rounded?: boolean
   areaLabel?: string
+  to?: string
 }
 
 // Styles
-const Icon = styled.button<{ $color: ColorType, $rounded: boolean }>`
+const IconStyles = css<{ $color: ColorType, $rounded: boolean }>`
   background-color: var(--color-${props => props.$color});
   background-position: center;
   background-repeat: no-repeat;
@@ -24,10 +26,17 @@ const Icon = styled.button<{ $color: ColorType, $rounded: boolean }>`
   height: 40px;
   width: 40px;
 `
+const IconBtn = styled.button<{ $color: ColorType, $rounded: boolean }>`
+  ${IconStyles}
+`
+const IconLink = styled(Link)<{ $color: ColorType, $rounded: boolean }>`
+  ${IconStyles}
+`
 
-const BtnIcon: React.FC<IBtnIcon<any>> = ({ areaLabel, classname, color = 'line', handler, rounded = false }) => {
+const BtnIcon: React.FC<IBtnIcon<any>> = ({ areaLabel, classname, color = 'line', handler, rounded = false, to }) => {
   return (
-    <Icon className={classname} onClick={handler} $color={color} $rounded={rounded} aria-label={areaLabel} />
+    !to ? <IconBtn className={classname} onClick={handler} $color={color} $rounded={rounded} aria-label={areaLabel} />
+        : <IconLink className={classname} to={to} $color={color} $rounded={rounded} aria-label={areaLabel} />
   )
 }
 
