@@ -12,7 +12,7 @@ const Head = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 0 26px;
-  h4 { margin: 0 10px 0 0; }
+  h2 { margin: 0 10px 0 0; }
 `
 const ResultsTable = styled.div`
   background: var(--color-white);
@@ -86,7 +86,7 @@ const Results: React.FC = () => {
   return (
     <div>
       <Head>
-        <h4>Результаты подсчёта</h4>
+        <h2>Результаты подсчёта</h2>
         <BtnIcon classname="downloadIcon" handler={() => {}} areaLabel="Download link" color="transparent" />
       </Head>
 

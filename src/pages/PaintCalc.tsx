@@ -5,6 +5,8 @@ import Btn from "../ui/Btn"
 import Field from "../ui/Field"
 import FormControl from "../ui/FormControl"
 import Select from "../ui/Select"
+import Range from "../ui/Range"
+import Check from "../ui/Check"
 
 const PaintCalc: React.FC = () => {
   const [material, setMaterial] = useState<string>('pipe-square')
@@ -12,9 +14,9 @@ const PaintCalc: React.FC = () => {
   return (
     <>
       <Header title="Калькулятор краски" />
-      <div className="app-calc grid grid-2 grid-mb-1">
+      <div className="app-calc app-paint grid grid-2 grid-mb-1">
         <div className="appbox">
-          <h4>Исходные данные</h4>
+          <h2>Исходные данные</h2>
           <Field title="Цена краски, руб/кг">
             <FormControl error={false} register={() => {}} />
           </Field>
@@ -28,11 +30,11 @@ const PaintCalc: React.FC = () => {
             <FormControl error={false} register={() => {}} />
           </Field>
 
-          <Btn title="Посчитать" type="submit" handler={() => {}} />
+          <Range max={100} handler={() => {}} />
         </div>
 
         <div className="appbox">
-          <h4>Расход краски</h4>
+          <h2>Расход краски</h2>
           <Field title="Материал окраски">
             <Select handler={(val) => setMaterial(val)} list={selectShapes} />
           </Field>
@@ -46,16 +48,16 @@ const PaintCalc: React.FC = () => {
             <FormControl error={false} register={() => {}} />
           </Field>
 
-          {material === 'sheet' && <p>
-            <label><input type="checkbox" /> Окраска с двух сторон</label>
-          </p>}
+          {material === 'sheet' && <Check label="Окраска с двух сторон" />}
+        </div>
 
+        <div className="appbox text-right">
           <Btn title="Посчитать" type="submit" handler={() => {}} />
         </div>
       </div>
 
       <div>
-        <h4>Результат</h4>
+        <h2>Результат</h2>
         <p>Стоимость покрытия, руб/м&sup2; - 0</p>
         <p>Расход краски, г/м&sup2; - 0</p>
         <p>Укрываемость, м&sup2;/кг - 0</p>
