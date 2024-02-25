@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import check from "../assets/check.svg"
-import checkWhite from "../assets/check-white.svg"
 import { useAppStore } from "../store/appStore"
 
 type CheckType = 'checkbox' | 'radio'
@@ -17,7 +15,10 @@ const CheckDiv = styled.div`
   &:last-child { margin: 0; }
 `
 const InputBox = styled.input<{ $type: CheckType, $theme: boolean }>`
-  background: var(--color-bg) url(${props => props.$theme ? check : checkWhite}) -9999px / 18px no-repeat;
+  background: var(--color-bg);
+  background-position: -9999px;
+  background-repeat: no-repeat;
+  background-size: 18px;
   border: 1px solid var(--color-line);
   border-radius: ${props => props.$type === 'radio' ? '50%' : '4px'};
   cursor: pointer;

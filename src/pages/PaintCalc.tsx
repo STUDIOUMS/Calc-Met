@@ -27,7 +27,7 @@ const PaintCalc: React.FC = () => {
             <Range min={50} max={150} step={1} defaultVal={80} handler={() => {}} />
           </Field>
           <Field title="Коэффициент, %">
-            <FormControl error={false} register={() => {}} placeholder="95" />
+            <Range min={1} max={100} step={1} defaultVal={10} handler={() => {}} />
           </Field>
         </div>
 

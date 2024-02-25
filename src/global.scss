@@ -184,6 +184,9 @@ body {
   background-size: 10px;
 }
 
+input[type="checkbox"] { background-image: url(./assets/check.svg); }
+
+/* dark theme */
 body[data-theme="dark"] {
   .infoIcon { background-image: url('./assets/info-white.svg'); }
   .deleteIcon { background-image: url('./assets/trash-white.svg'); background-color: var(--color-bg); }
@@ -193,6 +196,7 @@ body[data-theme="dark"] {
   .calcMetalIcon { background-image: url('./assets/calc-metal-white.svg'); }
   .calcSprayIcon { background-image: url('./assets/calc-spray-white.svg'); }
   .downloadIcon { background-image: url('./assets/file-white.svg'); }
+  input[type="checkbox"] { background-image: url(./assets/check-white.svg); }
 }
 
 
