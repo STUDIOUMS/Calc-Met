@@ -21,16 +21,14 @@ const PaintCalc: React.FC = () => {
             <FormControl error={false} register={() => {}} />
           </Field>
           <Field title="Удельный вес, г/см³">
-            <FormControl error={false} register={() => {}} />
+            <Range min={1.2} max={2.0} step={0.1} defaultVal={1.5} handler={() => {}} />
           </Field>
           <Field title="Толщина покрытия, мкм">
-            <FormControl error={false} register={() => {}} />
+            <Range min={50} max={150} step={1} defaultVal={80} handler={() => {}} />
           </Field>
           <Field title="Коэффициент, %">
             <FormControl error={false} register={() => {}} />
           </Field>
-
-          <Range max={100} handler={() => {}} />
         </div>
 
         <div className="appbox">
