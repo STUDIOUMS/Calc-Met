@@ -18,7 +18,7 @@ const PaintCalc: React.FC = () => {
         <div className="appbox">
           <h2>Исходные данные</h2>
           <Field title="Цена краски, руб/кг">
-            <FormControl error={false} register={() => {}} />
+            <FormControl error={false} register={() => {}} placeholder="500" />
           </Field>
           <Field title="Удельный вес, г/см³">
             <Range min={1.2} max={2.0} step={0.1} defaultVal={1.5} handler={() => {}} />
@@ -27,7 +27,7 @@ const PaintCalc: React.FC = () => {
             <Range min={50} max={150} step={1} defaultVal={80} handler={() => {}} />
           </Field>
           <Field title="Коэффициент, %">
-            <FormControl error={false} register={() => {}} />
+            <FormControl error={false} register={() => {}} placeholder="95" />
           </Field>
         </div>
 
@@ -37,13 +37,13 @@ const PaintCalc: React.FC = () => {
             <Select handler={(val) => setMaterial(val)} list={selectShapes} />
           </Field>
           <Field title="Площадь детали, м²">
-            <FormControl error={false} register={() => {}} />
+            <FormControl error={false} register={() => {}} placeholder="10" />
           </Field>
           <Field title="Количество, шт">
-            <FormControl error={false} register={() => {}} />
+            <FormControl error={false} register={() => {}} placeholder="1" />
           </Field>
           <Field title="Количество слоев">
-            <FormControl error={false} register={() => {}} />
+            <FormControl error={false} register={() => {}} placeholder="1" />
           </Field>
 
           {material === 'sheet' && <Check label="Окраска с двух сторон" />}
