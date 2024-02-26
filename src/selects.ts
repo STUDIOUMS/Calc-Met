@@ -15,7 +15,7 @@ export const weightSizeSelect: SelectItemType[] = [
 
 // selectShapes
 export const selectShapes: SelectItemType[] = [
-  { value: 'pipe-square', label: 'Труба квадратная' },
+  { value: 'pipe-square', label: 'Труба профильная' },
   { value: 'sheet', label: 'Лист' },
   { value: 'pipe', label: 'Труба' },
   { value: 'circle', label: 'Круг' },

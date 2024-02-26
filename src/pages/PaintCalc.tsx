@@ -22,7 +22,7 @@ const PaintCalc: React.FC = () => {
   const [material, setMaterial] = useState<string>('pipe-square')
   const [weight, setWeight] = useState<number>(1.5)
   const [thick, setThick] = useState<number>(80)
-  const [rate, setRate] = useState<number>(10)
+  const [rate, setRate] = useState<number>(90)
   const [bothsides, setBothsides] = useState<boolean>(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>()
 
@@ -45,7 +45,7 @@ const PaintCalc: React.FC = () => {
 
   return (
     <>
-      <Header title="Калькулятор краски" />
+      <Header title="Калькулятор окраски" />
       <form onSubmit={handleSubmit(submitForm)} noValidate>
         <div className="app-calc app-paint grid grid-2 grid-mb-1">
           <div className="appbox">
@@ -60,7 +60,7 @@ const PaintCalc: React.FC = () => {
               <Range min={50} max={150} step={1} defaultVal={80} handler={(val) => setThick(val)} />
             </Field>
             <Field title="Коэффициент, %">
-              <Range min={1} max={100} step={1} defaultVal={10} handler={(val) => setRate(val)} />
+              <Range min={1} max={100} step={1} defaultVal={90} handler={(val) => setRate(val)} />
             </Field>
           </div>
 

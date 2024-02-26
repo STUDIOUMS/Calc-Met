@@ -53,6 +53,7 @@ const Input = styled.input<{ $error?: boolean }>`
     -webkit-appearance: none;
     margin: 0;
   }
+  &::placeholder { opacity: 0.7; }
   &[type=number] {
     -moz-appearance: textfield;
   }
