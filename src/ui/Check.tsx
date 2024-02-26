@@ -7,6 +7,7 @@ interface ICheck {
   label: string
   name?: string
   type?: CheckType
+  handler: (check: boolean) => void
 }
 
 // Styles
@@ -39,13 +40,13 @@ const Label = styled.label`
   ${InputBox} { margin-right: 12px; }
 `
 
-const Check: React.FC<ICheck> = ({ label, name, type = 'checkbox' }) => {
+const Check: React.FC<ICheck> = ({ label, name, type = 'checkbox', handler }) => {
   const theme = useAppStore(state => state.theme)
 
   return (
     <CheckDiv>
       <Label>
-        <InputBox type={type} name={name} $type={type} $theme={theme} />
+        <InputBox type={type} name={name} $type={type} $theme={theme} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handler(e.target.checked)} />
         {label}
       </Label>
     </CheckDiv>

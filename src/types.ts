@@ -54,3 +54,16 @@ export type SetDataType = {
   materials: materialsObjType | null
   sizes: number[]
 }
+
+export type PaintType = {
+  price: number
+  weight: number
+  thick: number
+  rate: number
+  material: string
+  square: number
+  number: number
+  layers: number
+  bothsides?: boolean
+}
+
