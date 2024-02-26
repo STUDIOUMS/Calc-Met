@@ -1,19 +1,18 @@
 import styled from "styled-components"
-import { ResultType } from "../../types"
-import { ResultsTableTd } from "./Results"
-import Line from "./Line"
 import { useResultStore } from "../../store/resultStore"
 import Modal from "../Modal"
 import { useState } from "react"
 import Btn from "../../ui/Btn"
-import Sizes from "./Sizes"
+import { ResultsTableTd } from "./Results"
 
 interface IResultItem {
-  el: ResultType
+  children: React.ReactNode
+  classname?: string
+  elId: string
 }
 
 // Styles
-const Delete = styled.button`
+export const Delete = styled.button`
   background-color: var(--color-white);
   background-position: center;
   background-repeat: no-repeat;
@@ -35,31 +34,22 @@ const Delete = styled.button`
   }
 `
 
-const ResultItem: React.FC<IResultItem> = ({ el }) => {
+const ResultItem: React.FC<IResultItem> = ({ children, classname = 'grid grid-6 grid-mb-1', elId }) => {
   const { removeResult } = useResultStore()
   const [modal, setModal] = useState<boolean>(false)
 
   // removeItem
   const removeItem = () => {
     setModal(false)
-    removeResult(el.id)
+    removeResult(elId)
   }
 
   return (
     <>
-      <ResultsTableTd className="grid grid-6 grid-mb-1">
-        <Line name="Форма" value={el.shape} bold />
-        <Line name="Материал / Марка" value={`${el.material} / ${(el.mark === 'Марка' ? '---' : el.mark)}`} />
-        {/* <Line name="Марка" value={(el.mark === 'Марка' ? '---' : el.mark)} /> */}
-        <Line name="Размеры">
-          <Sizes sizes={el.sizes} type={el.setType} />
-        </Line>
-        <Line name="Вес, кг" value={el.weight} />
-        <Line name="Площадь, м²" value={el.square} />
-        <Line name="Цена" value={el.price} />
+      <ResultsTableTd className={classname}>
+        {children}
         <Delete className="deleteIcon" onClick={() => setModal(true)} />
       </ResultsTableTd>
-
       <Modal close={setModal} open={modal} title="Удалить результат" size="small">
         <div className="grid grid-2">
           <Btn handler={() => setModal(false)} title="Отмена" color="white" />

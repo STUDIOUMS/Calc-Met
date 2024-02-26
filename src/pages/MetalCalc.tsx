@@ -10,12 +10,13 @@ import { useForm } from "react-hook-form"
 import Footer from "../components/Footer"
 import Results from "../components/results/Results"
 import Header from "../components/Header"
+import MetalResults from "../components/results/MetalResults"
 
 
 const MetalCalc: React.FC = () => {
   const [materials, setMaterials] = useState<materialsObjType | null>(null)
   const [shape, setShape] = useState<ShapeType>(shapesList[0])
-  const { setResult } = useResultStore()
+  const { setResult, results, removeAllResults } = useResultStore()
 
   // Form
   const { handleSubmit, register, reset, formState: { errors } } = useForm()
@@ -58,7 +59,13 @@ const MetalCalc: React.FC = () => {
         </form>
       </div>
       
-      <Results />
+      <Results
+        length={results.length}
+        names={['Форма', 'Материал / Марка', 'Размеры', 'Вес, кг', 'Площадь, м²', 'Цена']}
+        removeAll={removeAllResults}
+      >
+        <MetalResults list={results} />
+      </Results>
     </>
   )
 }

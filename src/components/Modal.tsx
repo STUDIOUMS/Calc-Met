@@ -80,7 +80,7 @@ const Modal: React.FC<IModal> = ({ children, close, open, title, size = 'default
         <Close>
           <BtnIcon classname="closeIcon" handler={() => close(false)} color="warning" rounded />
         </Close>
-        <h4>{title}</h4>
+        <h2>{title}</h2>
         {children}
       </ModalBoxInside>
     </ModalBox>

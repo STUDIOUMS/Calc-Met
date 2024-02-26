@@ -1,10 +1,16 @@
 import styled from "styled-components"
 import Btn from "../../ui/Btn"
-import { useResultStore } from "../../store/resultStore"
-import ResultItem from "./ResultItem"
 import { useState } from "react"
 import Modal from "../Modal"
 import BtnIcon from "../../ui/BtnIcon"
+
+interface IResults {
+  children: React.ReactNode
+  length: number
+  names: string[]
+  removeAll: () => void
+  title?: string
+}
 
 // Styles
 const Head = styled.div`
@@ -71,35 +77,29 @@ const FooterBox = styled.div`
   }
 `
 
-const Results: React.FC = () => {
-  const { results, removeAllResults } = useResultStore()
+const Results: React.FC<IResults> = ({ children, length, names, removeAll, title = 'Результаты подсчёта' }) => {
   const [modal, setModal] = useState<boolean>(false)
 
   // removeAllHandler
   const removeAllHandler = () => {
     setModal(false)
-    removeAllResults()
+    removeAll()
   }
 
-  if (!results.length) return null
+  if (length === 0) return null
   
   return (
     <div>
       <Head>
-        <h2>Результаты подсчёта</h2>
-        <BtnIcon classname="downloadIcon" handler={() => {}} areaLabel="Download link" color="transparent" />
+        <h2>{title}</h2>
+        <BtnIcon classname="downloadIcon" handler={() => {}} areaLabel="Скачать результаты" color="transparent" />
       </Head>
 
       <ResultsTable>
         <ResultsTableHead className="grid grid-6">
-          <div>Форма</div>
-          <div>Материал / Марка</div>
-          <div>Размеры</div>
-          <div>Вес, кг</div>
-          <div>Площадь, м&sup2;</div>
-          <div>Цена</div>
+          {names.map((name, index) => <div key={index}>{name}</div>)}
         </ResultsTableHead>
-        {results.map(el => <ResultItem key={el.id} el={el} />)}
+        {children}
       </ResultsTable>
 
       <FooterBox>
