@@ -1,3 +1,4 @@
+import { useResultStore } from "../../store/resultStore"
 import { ResultType } from "../../types"
 import Line from "./Line"
 import ResultItem from "./ResultItem"
@@ -8,8 +9,10 @@ interface IMetalResults {
 }
 
 const MetalResults: React.FC<IMetalResults> = ({ list }) => {
+  const { removeResult } = useResultStore()
+
   return (
-    list.map(el => <ResultItem key={el.id} elId={el.id}>
+    list.map(el => <ResultItem key={el.id} elId={el.id} remove={removeResult}>
       <>
         <Line name="Форма" value={el.shape} bold />
         <Line name="Материал / Марка" value={`${el.material} / ${(el.mark === 'Марка' ? '---' : el.mark)}`} />

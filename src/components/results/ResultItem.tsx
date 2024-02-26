@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { useResultStore } from "../../store/resultStore"
 import Modal from "../Modal"
 import { useState } from "react"
 import Btn from "../../ui/Btn"
@@ -9,6 +8,7 @@ interface IResultItem {
   children: React.ReactNode
   classname?: string
   elId: string
+  remove: (id: string) => void
 }
 
 // Styles
@@ -34,14 +34,13 @@ export const Delete = styled.button`
   }
 `
 
-const ResultItem: React.FC<IResultItem> = ({ children, classname = 'grid grid-6 grid-mb-1', elId }) => {
-  const { removeResult } = useResultStore()
+const ResultItem: React.FC<IResultItem> = ({ children, classname = 'grid grid-6 grid-mb-1', elId, remove }) => {
   const [modal, setModal] = useState<boolean>(false)
 
   // removeItem
   const removeItem = () => {
     setModal(false)
-    removeResult(elId)
+    remove(elId)
   }
 
   return (

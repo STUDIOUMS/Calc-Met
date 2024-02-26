@@ -96,7 +96,7 @@ const Results: React.FC<IResults> = ({ children, length, names, removeAll, title
       </Head>
 
       <ResultsTable>
-        <ResultsTableHead className="grid grid-6">
+        <ResultsTableHead className={`grid grid-${names.length}`}>
           {names.map((name, index) => <div key={index}>{name}</div>)}
         </ResultsTableHead>
         {children}

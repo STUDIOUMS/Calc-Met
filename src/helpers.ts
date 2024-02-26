@@ -164,3 +164,9 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
     square: totalArea,
   }
 }
+
+// transform numbers
+export function transformNumber(num: number) {
+  return (num % 1) === 0 ? num.toFixed(0) : num.toFixed(2)
+}
+

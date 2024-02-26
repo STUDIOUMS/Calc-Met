@@ -9,6 +9,9 @@ import Range from "../ui/Range"
 import Check from "../ui/Check"
 import { useForm } from "react-hook-form"
 import { PaintType } from "../types"
+import { usePaintResultStore } from "../store/resultPaintStore"
+import Results from "../components/results/Results"
+import PaintResults from "../components/results/PaintResults"
 
 // FormValues
 type FormValues = {
@@ -25,6 +28,7 @@ const PaintCalc: React.FC = () => {
   const [rate, setRate] = useState<number>(90)
   const [bothsides, setBothsides] = useState<boolean>(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>()
+  const { removeAllPaintResults, resultsPaint, setResultPaint } = usePaintResultStore()
 
   // submitForm
   const submitForm = (data: FormValues) => {
@@ -39,7 +43,7 @@ const PaintCalc: React.FC = () => {
       weight,
       bothsides
     }
-    console.log(object)
+    setResultPaint(object)
   }
   
 
@@ -88,13 +92,13 @@ const PaintCalc: React.FC = () => {
         </div>
       </form>
 
-      <div>
-        <h2>Результат</h2>
-        <p>Стоимость покрытия, руб/м&sup2; - 0</p>
-        <p>Расход краски, г/м&sup2; - 0</p>
-        <p>Укрываемость, м&sup2;/кг - 0</p>
-        <p>Сколько потребуется краски, кг - 0</p>
-      </div>
+      <Results
+        length={resultsPaint.length}
+        names={['Стоимость покрытия, руб/м²', 'Расход краски, г/м²', 'Укрываемость, м²/кг', 'Сколько потребуется краски, кг']}
+        removeAll={removeAllPaintResults}
+      >
+        <PaintResults list={resultsPaint} />
+      </Results>
     </>
   )
 }

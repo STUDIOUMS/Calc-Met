@@ -67,3 +67,11 @@ export type PaintType = {
   bothsides?: boolean
 }
 
+export type PaintDataType = {
+  id: string
+  consume: string
+  cover: string
+  priceCover: string
+  necessity: string
+}
+
