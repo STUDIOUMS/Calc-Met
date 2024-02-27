@@ -26,7 +26,7 @@ export const usePaintResultStore = create<PaintResultState>()(
           const consume: number = (weight * thick / (efficiency / 100)) * layers * number
           const cover: number = 1000 / (weight * thick)
           const priceCover: number = (weight * thick * price) / (efficiency * 10) * layers * number
-          const necessity: number = weight * square * thick * layers * number
+          const necessity: number = weight * square * thick / 1000 * layers * number
           
           // Output
           const output: PaintDataType = {

@@ -61,10 +61,10 @@ const PaintCalc: React.FC = () => {
               <Range min={1.2} max={2.0} step={0.1} defaultVal={1.5} handler={(val) => setWeight(val)} />
             </Field>
             <Field title="Толщина покрытия, мкм">
-              <Range min={50} max={150} step={1} defaultVal={80} handler={(val) => setThick(val)} />
+              <Range min={50} max={150} step={5} defaultVal={80} handler={(val) => setThick(val)} />
             </Field>
             <Field title="Эффективность, %">
-              <Range min={1} max={100} step={1} defaultVal={90} handler={(val) => setEfficiency(val)} />
+              <Range min={0} max={100} step={10} defaultVal={90} handler={(val) => setEfficiency(val)} />
             </Field>
           </div>
 
