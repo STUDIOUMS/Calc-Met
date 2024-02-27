@@ -62,7 +62,7 @@ export type PaintType = {
   efficiency: number
   material: string
   square: number
-  number: number
+  number?: number
   layers: number
   bothsides?: boolean
 }

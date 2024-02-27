@@ -167,6 +167,6 @@ export const calcMetalFuction = (shape: ShapeValueType, mark: number, sizes: num
 
 // transform numbers
 export function transformNumber(num: number) {
-  return (num % 1) === 0 ? num.toFixed(0) : num.toFixed(2)
+  return (num % 1) === 0 ? num.toFixed(0) : num.toFixed(3)
 }
 

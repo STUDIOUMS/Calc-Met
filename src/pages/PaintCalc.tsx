@@ -76,14 +76,14 @@ const PaintCalc: React.FC = () => {
             <Field title="Площадь детали, м²">
               <FormControl type="number" register={register('square', { required: true, min: 1 })} placeholder="10" error={errors.hasOwnProperty('square')} />
             </Field>
-            <Field title="Количество, шт">
+            {material === 'sheet' && <Field title="Количество, шт">
               <FormControl type="number" register={register('number', { required: false, min: 1 })} placeholder="1" error={errors.hasOwnProperty('number')} />
-            </Field>
+            </Field>}
             <Field title="Количество слоев">
               <FormControl type="number" register={register('layers', { required: false, min: 1 })} placeholder="1" error={errors.hasOwnProperty('layers')} />
             </Field>
 
-            {material === 'sheet' && <Check label="Окраска с двух сторон" handler={(check) => setBothsides(check)} />}
+            {(material === 'sheet' || material === 'ribbon') && <Check label="Окраска с двух сторон" handler={(check) => setBothsides(check)} />}
           </div>
 
           <div className="appbox text-right">
