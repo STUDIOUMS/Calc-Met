@@ -59,7 +59,7 @@ export type PaintType = {
   price: number
   weight: number
   thick: number
-  rate: number
+  efficiency: number
   material: string
   square: number
   number: number

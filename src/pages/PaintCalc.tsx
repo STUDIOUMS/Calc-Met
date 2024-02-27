@@ -25,7 +25,7 @@ const PaintCalc: React.FC = () => {
   const [material, setMaterial] = useState<string>('pipe-square')
   const [weight, setWeight] = useState<number>(1.5)
   const [thick, setThick] = useState<number>(80)
-  const [rate, setRate] = useState<number>(90)
+  const [efficiency, setEfficiency] = useState<number>(90)
   const [bothsides, setBothsides] = useState<boolean>(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>()
   const { removeAllPaintResults, resultsPaint, setResultPaint } = usePaintResultStore()
@@ -37,7 +37,7 @@ const PaintCalc: React.FC = () => {
       material,
       number: Number(data.number),
       price: Number(data.price),
-      rate,
+      efficiency,
       square: Number(data.square),
       thick,
       weight,
@@ -63,8 +63,8 @@ const PaintCalc: React.FC = () => {
             <Field title="Толщина покрытия, мкм">
               <Range min={50} max={150} step={1} defaultVal={80} handler={(val) => setThick(val)} />
             </Field>
-            <Field title="Коэффициент, %">
-              <Range min={1} max={100} step={1} defaultVal={90} handler={(val) => setRate(val)} />
+            <Field title="Эффективность, %">
+              <Range min={1} max={100} step={1} defaultVal={90} handler={(val) => setEfficiency(val)} />
             </Field>
           </div>
 
