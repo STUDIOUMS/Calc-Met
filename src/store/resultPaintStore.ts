@@ -21,12 +21,14 @@ export const usePaintResultStore = create<PaintResultState>()(
         // setResultPaint
         setResultPaint: (data) => set((state) => {
           const { efficiency, layers, number, price, square, thick, weight } = data
+          let layersData = layers ? layers : 1
+          let numberData = number ? number : 1
           
           // Calculating
-          const consume: number = (weight * thick / (efficiency / 100)) * layers * number
+          const consume: number = (weight * thick / (efficiency / 100)) * layersData * numberData
           const cover: number = 1000 / (weight * thick)
-          const priceCover: number = (weight * thick * price) / (efficiency * 10) * layers * number
-          const necessity: number = weight * square * thick / 1000 * layers * number
+          const priceCover: number = (weight * thick * price) / (efficiency * 10) * layersData * numberData
+          const necessity: number = weight * square * thick / 1000 * layersData * numberData
           
           // Output
           const output: PaintDataType = {
