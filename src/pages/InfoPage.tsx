@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import Spoiler from "../ui/Spoiler"
 
 const InfoPage: React.FC = () => {
   return (
@@ -7,6 +8,11 @@ const InfoPage: React.FC = () => {
       <div className="app-calc">
         <div className="appbox">
           <p>Наш онлайн калькулятор предназначен для определения веса металлопроката с учетом его удельного веса. Пользователи могут выбрать тип металла, ввести размеры и количество материала. Калькулятор автоматически рассчитывает общий вес металла, предоставляя точные результаты для проектирования, строительства или других задач, связанных с металлоконструкциями.</p>
+          <Spoiler title="Spoiler">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
+          </Spoiler>
           <p>Удобство использования делает его полезным инструментом в инженерной практике и строительной сфере. Онлайн калькулятор сможет рассчитать вес металлопроката для различных типов металлов, включая, но не ограничиваясь такие как:</p>
           <ul>
             <li>Черные металлы,  железо и сталь</li>

@@ -20,13 +20,15 @@ export const usePaintResultStore = create<PaintResultState>()(
 
         // setResultPaint
         setResultPaint: (data) => set((state) => {
-          const { efficiency, layers, number, price, square, thick, weight, bothsides } = data
+          const { efficiency, layers, number, price, square, thick, weight, bothsides, currency, material } = data
           let layersData = layers ? layers : 1
           let numberData = number ? number : 1
           let both = bothsides ? 2 : 1
+
+          console.log(material)
           
           // Calculating
-          const consume: number = (weight * thick / (efficiency / 100)) * layersData * numberData * both
+          const consume: number = (weight * thick / (efficiency / 100)) * layersData * numberData
           const cover: number = 1000 / (weight * thick)
           const priceCover: number = (weight * thick * price) / (efficiency * 10) * layersData * numberData
           const necessity: number = weight * square * thick / 1000 * layersData * numberData * both
@@ -37,7 +39,8 @@ export const usePaintResultStore = create<PaintResultState>()(
             consume: transformNumber(consume),
             cover: transformNumber(cover),
             necessity: transformNumber(necessity),
-            priceCover: transformNumber(priceCover)
+            priceCover: transformNumber(priceCover) + ' ' + currency,
+            material
           }
           
           return { resultsPaint: [ output, ...state.resultsPaint ] }

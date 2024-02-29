@@ -9,6 +9,7 @@ export type SizeType = {
 
 export type LengthSizeType = 'мм.' | 'см.' | 'м.'
 export type WeightSizeType = 'кг.' | 'тн.'
+export type CurrencyType = 'руб' | 'USD' | 'EUR'
 
 export type ShapeType = {
   id: number
@@ -65,6 +66,7 @@ export type PaintType = {
   number?: number
   layers: number
   bothsides?: boolean
+  currency: CurrencyType
 }
 
 export type PaintDataType = {
@@ -73,5 +75,6 @@ export type PaintDataType = {
   cover: string
   priceCover: string
   necessity: string
+  material: string
 }
 

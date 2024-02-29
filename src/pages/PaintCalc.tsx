@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Header from "../components/Header"
-import { selectShapes } from "../selects"
+import { currencySelect, selectShapes } from "../selects"
 import Btn from "../ui/Btn"
 import Field from "../ui/Field"
 import FormControl from "../ui/FormControl"
@@ -8,7 +8,7 @@ import Select from "../ui/Select"
 import Range from "../ui/Range"
 import Check from "../ui/Check"
 import { useForm } from "react-hook-form"
-import { PaintType } from "../types"
+import { CurrencyType, PaintType } from "../types"
 import { usePaintResultStore } from "../store/resultPaintStore"
 import Results from "../components/results/Results"
 import PaintResults from "../components/results/PaintResults"
@@ -22,6 +22,7 @@ type FormValues = {
 }
 
 const PaintCalc: React.FC = () => {
+  const [currency, setCurrency] = useState<CurrencyType>('руб')
   const [material, setMaterial] = useState<string>('pipe-square')
   const [weight, setWeight] = useState<number>(1.5)
   const [thick, setThick] = useState<number>(80)
@@ -41,7 +42,8 @@ const PaintCalc: React.FC = () => {
       square: Number(data.square),
       thick,
       weight,
-      bothsides
+      bothsides,
+      currency
     }
     setResultPaint(object)
   }
@@ -54,8 +56,9 @@ const PaintCalc: React.FC = () => {
         <div className="app-calc app-paint grid grid-2 grid-mb-1">
           <div className="appbox">
             <h2>Исходные данные</h2>
-            <Field title="Цена краски, руб/кг">
+            <Field title={`Цена краски, ${currency}/кг`}>
               <FormControl type="number" register={register('price', { required: true, min: 1 })} placeholder="500" error={errors.hasOwnProperty('price')} />
+              <Select handler={(val) => setCurrency(val)} list={currencySelect} size="small" styles="stick" />
             </Field>
             <Field title="Удельный вес, г/см³">
               <Range min={1.2} max={2.0} step={0.1} defaultVal={1.5} handler={(val) => setWeight(val)} />
@@ -94,7 +97,7 @@ const PaintCalc: React.FC = () => {
 
       <Results
         length={resultsPaint.length}
-        names={['Стоимость покрытия, руб/м²', 'Расход краски, г/м²', 'Укрываемость, м²/кг', 'Сколько потребуется краски, кг']}
+        names={['Материал', 'Стоимость покрытия', 'Расход краски, г/м²', 'Укрываемость, м²/кг', 'Сколько потребуется краски, кг']}
         removeAll={removeAllPaintResults}
       >
         <PaintResults list={resultsPaint} />

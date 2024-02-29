@@ -3,9 +3,9 @@ import { SelectItemType } from "../types"
 
 type SelectSizeType = 'small' | 'default'
 
-interface ISelect {
+interface ISelect<T> {
   list: SelectItemType[]
-  handler: (val: string) => void
+  handler: (val: string | T) => void
   size?: SelectSizeType
   defVal?: string
   styles?: any
@@ -44,7 +44,7 @@ const Dropdown = styled.select<{ $size: SelectSizeType }>`
   }
 `
 
-const Select: React.FC<ISelect> = ({ list, handler, size = 'default', defVal, styles }) => {
+const Select: React.FC<ISelect<any>> = ({ list, handler, size = 'default', defVal, styles }) => {
   return (
     <Dropdown
       className={`selectArrow ${styles}`}

@@ -13,6 +13,13 @@ export const weightSizeSelect: SelectItemType[] = [
   { value: 'тн.', label: 'тн.' },
 ]
 
+// currencySelect
+export const currencySelect: SelectItemType[] = [
+  { value: 'руб', label: 'руб' },
+  { value: 'USD', label: 'USD' },
+  { value: 'EUR', label: 'EUR' },
+]
+
 // selectShapes
 export const selectShapes: SelectItemType[] = [
   { value: 'pipe-square', label: 'Труба профильная' },
