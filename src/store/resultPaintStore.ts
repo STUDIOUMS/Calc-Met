@@ -3,6 +3,7 @@ import { devtools, persist } from 'zustand/middleware'
 import { PaintDataType, PaintType } from '../types'
 import { nanoid } from 'nanoid'
 import { transformNumber } from '../helpers'
+import { selectShapes } from '../selects'
 
 
 interface PaintResultState {
@@ -21,11 +22,10 @@ export const usePaintResultStore = create<PaintResultState>()(
         // setResultPaint
         setResultPaint: (data) => set((state) => {
           const { efficiency, layers, number, price, square, thick, weight, bothsides, currency, material } = data
-          let layersData = layers ? layers : 1
-          let numberData = number ? number : 1
-          let both = bothsides ? 2 : 1
-
-          console.log(material)
+          let layersData: number = layers ? layers : 1
+          let numberData: number = number ? number : 1
+          let both: number = bothsides ? 2 : 1
+          let materialName: string = selectShapes.find(i => i.value === material)?.label!
           
           // Calculating
           const consume: number = (weight * thick / (efficiency / 100)) * layersData * numberData
@@ -40,7 +40,7 @@ export const usePaintResultStore = create<PaintResultState>()(
             cover: transformNumber(cover),
             necessity: transformNumber(necessity),
             priceCover: transformNumber(priceCover) + ' ' + currency,
-            material
+            material: materialName
           }
           
           return { resultsPaint: [ output, ...state.resultsPaint ] }
