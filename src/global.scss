@@ -12,6 +12,7 @@
   --fs: 15px;
   --gap: 10px;
   --container: 980px;
+  --paragraph: 24px;
 }
 
 
@@ -58,6 +59,9 @@ body {
   &.night {
     background: #151515;
   }
+}
+p, ol, ul {
+  margin: 0 0 var(--paragraph);
 }
 .text-center { text-align: center; }
 .text-right { text-align: right; }

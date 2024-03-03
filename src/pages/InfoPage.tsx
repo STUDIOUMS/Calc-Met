@@ -13,6 +13,13 @@ const InfoPage: React.FC = () => {
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
           </Spoiler>
+          <Spoiler title="Spoiler">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
+          </Spoiler>
+          <Spoiler title="Spoiler">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet consectetur officiis sed corrupti! Nam consequatur obcaecati qui dolorem perferendis vitae, animi dignissimos, sapiente aut sit fugiat ducimus odio voluptatibus asperiores!</p>
+          </Spoiler>
           <p>Удобство использования делает его полезным инструментом в инженерной практике и строительной сфере. Онлайн калькулятор сможет рассчитать вес металлопроката для различных типов металлов, включая, но не ограничиваясь такие как:</p>
           <ul>
             <li>Черные металлы,  железо и сталь</li>

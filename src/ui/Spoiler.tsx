@@ -7,6 +7,9 @@ interface ISpoiler {
 }
 
 // Styles
+const SpoilerBody = styled.div`
+  margin: 0 0 var(--paragraph);
+`
 const Head = styled.button`
   background: var(--color-bg);
   border: 0;
@@ -25,21 +28,23 @@ const Hidden = styled.div<{ $height: number, $open: boolean }>`
   overflow: hidden;
   transition: height 100ms linear;
 `
-const HiddenInner = styled.div``
+const HiddenInner = styled.div`
+  padding-top: 16px;
+`
 
 const Spoiler: React.FC<ISpoiler> = ({ children, title }) => {
   const [desc, setDesc] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
 
   return (
-    <div>
+    <SpoilerBody>
       <Head onClick={() => setDesc(!desc)}>{title}</Head>
       <Hidden $open={desc} $height={ref.current?.clientHeight!}>
         <HiddenInner ref={ref}>
           {children}
         </HiddenInner>
       </Hidden>
-    </div>
+    </SpoilerBody>
   )
 }
 
