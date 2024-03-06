@@ -2,7 +2,11 @@ import { useRef, useState } from "react"
 import styled from "styled-components"
 
 interface ISpoiler {
+  all?: boolean
   children: React.ReactNode
+  current: number
+  handler: React.Dispatch<React.SetStateAction<number>>
+  index: number
   title: string
 }
 
@@ -26,20 +30,28 @@ const Head = styled.button`
 const Hidden = styled.div<{ $height: number, $open: boolean }>`
   height: ${props => props.$open ? `${props.$height}px` : 0};
   overflow: hidden;
-  transition: height 100ms linear;
+  transition: height 200ms linear;
 `
 const HiddenInner = styled.div`
   padding-top: 16px;
 `
 
-const Spoiler: React.FC<ISpoiler> = ({ children, title }) => {
-  const [desc, setDesc] = useState<boolean>(false)
+// Spoiler
+const Spoiler: React.FC<ISpoiler> = ({ all = false, children, current, handler, index, title }) => {
+  const [open, setOpen] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
+  const opened: boolean = !all ? current === index : open
+
+  // clickHandler
+  const clickHandler = () => {
+    !all ? (current !== index) ? handler(index) : handler(0)
+        : setOpen(!open)
+  }
 
   return (
     <SpoilerBody>
-      <Head onClick={() => setDesc(!desc)}>{title}</Head>
-      <Hidden $open={desc} $height={ref.current?.clientHeight!}>
+      <Head onClick={clickHandler}>{title}</Head>
+      <Hidden $open={opened} $height={ref.current?.clientHeight!}>
         <HiddenInner ref={ref}>
           {children}
         </HiddenInner>
