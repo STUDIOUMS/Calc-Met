@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "email": "golubkovru@gmail.com",
+    "name": "Konstantin",
+    "url": "https://github.com/K-ost"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
