@@ -44,8 +44,7 @@ const Spoiler: React.FC<ISpoiler> = ({ all = false, children, current, handler, 
 
   // clickHandler
   const clickHandler = () => {
-    !all ? (current !== index) ? handler(index) : handler(0)
-        : setOpen(!open)
+    !all ? (current !== index) ? handler(index) : handler(0) : setOpen(!open)
   }
 
   return (
